@@ -1,6 +1,5 @@
 package no.ifi.inf5040;
 
-import Quiz.QuizServer;
 import no.ifi.inf5040.gui.InteractiveFormGUI;
 
 import javax.swing.*;
