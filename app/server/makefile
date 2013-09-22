@@ -8,7 +8,7 @@ OMNI_INCLUDES = -I$(OMNI_HOME)/include
 OMNI_LIB_DIR  = $(OMNI_HOME)/lib
 INCLUDES      = $(OMNI_INCLUDES)
 LIBS          = -lomniORB4 -lomnithread -lomniDynamic4
-OBJECTS       = quizSK.o service.o main.o
+OBJECTS       = quizSK.o quiz_server.o main.o
 
 #------------------------------------------------------------------------------
                                                                                 
@@ -21,8 +21,8 @@ quizSK.o: $(SOURCE)/quizSK.cc $(SOURCE)/quiz.hh
 main.o: $(SOURCE)/main.cpp $(SOURCE)/quiz.hh
 	$(CC) $(CPPFLAGS) $(INCLUDES) $(SOURCE)/main.cpp
                                                                                 
-service.o: $(SOURCE)/service.cpp $(SOURCE)/service.h $(SOURCE)/quiz.hh
-	$(CC) $(CPPFLAGS) $(INCLUDES) $(SOURCE)/service.cpp
+quiz_server.o: $(SOURCE)/quiz_server.cpp $(SOURCE)/quiz_server.h $(SOURCE)/quiz.hh
+	$(CC) $(CPPFLAGS) $(INCLUDES) $(SOURCE)/quiz_server.cpp
                                                                                 
 $(SOURCE)/quizSK.cc: $(SOURCE)/quiz.idl
 	omniidl -bcxx $(SOURCE)/quiz.idl
