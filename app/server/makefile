@@ -35,7 +35,7 @@ run:
 clean clean_all:
 	rm -fr *.o
 	rm -fr core
-	rm -fr *.hh
+	rm -fr $(SOURCE)/*.hh
 	rm -fr $(SOURCE)/*SK.cc
 	rm -fr Server
 
