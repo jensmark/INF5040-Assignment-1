@@ -19,8 +19,12 @@ public class InteractiveClient extends ClientBase{
     }
 
     public static void main(String [] args){
+        String port = "6666";
+        String ip = "00:50:56:c0:00:01";
+
+
         InteractiveClient client = new InteractiveClient();
-        QuizServer server = client.connect("2809", "localhost");
+        QuizServer server = client.connect(port, ip);
 
         JFrame frame = new JFrame("Awesome quiz!");
         frame.setPreferredSize(new Dimension(800, 600));
@@ -38,7 +42,7 @@ public class InteractiveClient extends ClientBase{
                     System.exit(0);
                 }
 
-                server = client.connect("2809", "localhost");
+                server = client.connect(port, ip);
             }
 
         }

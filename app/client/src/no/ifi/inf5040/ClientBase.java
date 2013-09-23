@@ -21,9 +21,13 @@ public class ClientBase {
             return server;
         }
 
-        String[] args = {
+        /*String[] args = {
                 "-ORBInitialPort", port,
-                "-ORBInitialHost", address};
+                "-ORBInitialHost", address};  */
+        String[] args = {
+
+                "-ORBInitRef", String.format("NameService=corbaloc:iiop:%s:%s",  address, port), "/NameService"
+        };
 
         try{
             ORB orb = ORB.init(args, null);
