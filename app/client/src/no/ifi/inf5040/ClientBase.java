@@ -27,11 +27,12 @@ public class ClientBase {
 
         try{
             ORB orb = ORB.init(args, null);
+            //ORB orb = ORB.init();
 
             org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
             NamingContextExt nameContext = NamingContextExtHelper.narrow(objRef);
 
-            String name = "Server";
+            String name = "QuizService";
             server = QuizServerHelper.narrow(nameContext.resolve_str(name));
 
         }catch(Exception e){
