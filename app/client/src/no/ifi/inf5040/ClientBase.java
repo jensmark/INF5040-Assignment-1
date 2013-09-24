@@ -14,7 +14,7 @@ public class ClientBase {
         return server;
     }
 
-    protected QuizServer connect(String port, String address) {
+    protected QuizServer connect(String port, String address) throws Exception{
 
         // Server connection has already been established
         if(server != null){
@@ -23,9 +23,9 @@ public class ClientBase {
 
         /*String[] args = {
                 "-ORBInitialPort", port,
-                "-ORBInitialHost", address};  */
+                "-ORBInitialHost", address
+        }; */
         String[] args = {
-
                 "-ORBInitRef", String.format("NameService=corbaloc:iiop:%s:%s",  address, port), "/NameService"
         };
 
@@ -43,6 +43,7 @@ public class ClientBase {
             System.out.println("ERROR: " + e.getMessage());
             e.printStackTrace();
             server = null;
+            throw new Exception();
 
         }finally {
             return server;

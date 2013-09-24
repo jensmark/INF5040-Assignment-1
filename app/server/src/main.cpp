@@ -50,6 +50,7 @@ int main(int argc, char** argv) {
 		pmgr->activate();
 		
 		std::cout << "Server is running..." << std::endl;
+		std::cout << "Ctrl+C to terminate process" << std::endl;
 		orb->run();
 		std::cout << "Server is shutting down.." << std::endl;
 		

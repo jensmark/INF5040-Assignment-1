@@ -20,11 +20,11 @@ public class InteractiveClient extends ClientBase{
 
     public static void main(String [] args){
         String port = "6666";
-        String ip = "00:50:56:c0:00:01";
+        String ip = "localhost";
 
+        QuizServer server = null;
 
         InteractiveClient client = new InteractiveClient();
-        QuizServer server = client.connect(port, ip);
 
         JFrame frame = new JFrame("Awesome quiz!");
         frame.setPreferredSize(new Dimension(800, 600));
@@ -33,18 +33,29 @@ public class InteractiveClient extends ClientBase{
         frame.pack();
         frame.setVisible(true);
 
-        if(server == null){
-            int option = JOptionPane.YES_OPTION;
-            while(server == null && option == JOptionPane.YES_OPTION){
-                option = JOptionPane.showConfirmDialog(frame, "Failed to connect to server, \nDo you want to retry?",
-                        "Connection failed", JOptionPane.YES_NO_OPTION);
-                if(option == JOptionPane.NO_OPTION){
-                    System.exit(0);
+        try {
+
+            server = client.connect(port, ip);
+
+
+            int result = server.removeQuestion(0);
+            client.getGui().getQuestionLabel().setText(Integer.toString(result));
+
+        } catch (Exception e){
+            if(server == null){
+                int option = JOptionPane.YES_OPTION;
+                while(server == null && option == JOptionPane.YES_OPTION){
+                    option = JOptionPane.showConfirmDialog(frame, "Failed to connect to server, \nDo you want to retry?",
+                            "Connection failed", JOptionPane.YES_NO_OPTION);
+                    if(option == JOptionPane.NO_OPTION){
+                        System.exit(0);
+                    }
+                    try{
+                        server = client.connect(port, ip);
+                    }catch (Exception ee){}
                 }
 
-                server = client.connect(port, ip);
             }
-
         }
     }
 

@@ -30,7 +30,7 @@ $(SOURCE)/quizSK.cc: $(SOURCE)/quiz.idl
 	mv quizSK.cc $(SOURCE)
 	
 run:
-	./Server	
+	./Server -ORBInitRef NameService=corbaname::localhost:6666
                                                                                 
 clean clean_all:
 	rm -fr *.o

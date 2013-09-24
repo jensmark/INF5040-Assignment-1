@@ -17,5 +17,5 @@ CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 	return true;
 }
 CORBA::Long QuizServerImpl::removeQuestion(CORBA::Long questionId){
-	return 0;
+	return 1234567;
 }
