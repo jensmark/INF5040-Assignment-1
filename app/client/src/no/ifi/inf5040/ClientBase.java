@@ -8,17 +8,17 @@ import org.omg.CosNaming.NamingContextExtHelper;
 
 public class ClientBase {
 
-    private static QuizServer server = null;
+    protected static QuizServer server = null;
 
     public QuizServer getServer(){
         return server;
     }
 
-    protected QuizServer connect(String port, String address) throws Exception{
+    protected boolean connect(String port, String address) throws Exception{
 
         // Server connection has already been established
         if(server != null){
-            return server;
+            return true;
         }
 
         /*String[] args = {
@@ -46,7 +46,7 @@ public class ClientBase {
             throw new Exception();
 
         }finally {
-            return server;
+            return false;
         }
     }
 }

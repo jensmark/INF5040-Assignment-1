@@ -4,19 +4,20 @@ import javax.swing.*;
 
 
 public class InteractiveFormGUI {
-    private JList questionList;
     private JLabel questionLabel;
     private JButton newQuestionButton;
-    private JTextArea questionInput;
     private JButton answerQuestionButton;
     private JPanel mainPanel;
+    private JButton delQuestionButton;
+    private JButton getQuestionButton;
+    private JList alternativeList;
 
     public void createUIComponents(){
 
     }
 
-    public JList getQuestionList() {
-        return questionList;
+    public JButton getDelQuestionButton() {
+        return delQuestionButton;
     }
 
     public JLabel getQuestionLabel() {
@@ -27,12 +28,17 @@ public class InteractiveFormGUI {
         return newQuestionButton;
     }
 
-    public JTextArea getQuestionInput() {
-        return questionInput;
-    }
 
     public JButton getAnswerQuestionButton() {
         return answerQuestionButton;
+    }
+
+    public JButton getGetQuestionButton() {
+        return getQuestionButton;
+    }
+
+    public JList getAlternativeList() {
+        return alternativeList;
     }
 
     public JPanel getMainPanel() {
