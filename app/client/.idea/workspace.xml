@@ -11,12 +11,12 @@
     <file path="/NonInteractiveClient.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379675717536" ignored="false" />
     <file path="/fragment.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379674338931" ignored="false" />
     <file path="/ClientBase.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380036918569" ignored="false" />
-    <file path="/InteractiveClient.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380040680076" ignored="false" />
+    <file path="/InteractiveClient.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380230028281" ignored="false" />
     <file path="/AlternativeImpl.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379676518582" ignored="false" />
     <file path="/CompleteQuestionImpl.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379676541670" ignored="false" />
     <file path="/QuestionImpl.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379676572040" ignored="false" />
     <file path="/InteractiveFormGUI.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379866225215" ignored="false" />
-    <file path="/NewAnswerDialogGUI.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380047019618" ignored="false" />
+    <file path="/NewAnswerDialogGUI.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380228112172" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +32,7 @@
   </component>
   <component name="DebuggerManager">
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -68,7 +69,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -78,54 +78,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="InteractiveClient.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="InteractiveClient.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="83" selection-start="3695" selection-end="3695" vertical-scroll-proportion="0.0">
+            <state line="102" column="74" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.9082031">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#568#741#0" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
-                <element signature="e#797#970#0" expanded="true" />
-                <element signature="e#959#960#0" expanded="true" />
-                <element signature="e#1029#1205#0" expanded="true" />
-                <element signature="e#1194#1195#0" expanded="true" />
-                <element signature="e#1261#1440#0" expanded="true" />
-                <element signature="e#1429#1430#0" expanded="true" />
-                <element signature="e#2395#2728#0" expanded="true" />
-                <element signature="e#2717#2718#0" expanded="true" />
-                <element signature="e#2762#2924#0" expanded="true" />
-                <element signature="e#2913#2914#0" expanded="true" />
+                <element signature="e#2505#3858#0" expanded="true" />
+                <element signature="e#3847#3848#0" expanded="true" />
+                <element signature="e#3892#4054#0" expanded="true" />
+                <element signature="e#4043#4044#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InteractiveFormGUI.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.java">
+      <file leaf-file-name="alternativesIdsHolder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerPackage/alternativesIdsHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="116" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NewAnswerDialogGUI.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="51" selection-start="2929" selection-end="2929" vertical-scroll-proportion="2.764706">
-              <folding>
-                <element signature="e#1223#1637#0" expanded="true" />
-                <element signature="e#1626#1627#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/ClientBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
+            <state line="38" column="69" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,7 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/no/ifi/inf5040/noninteractive/NonInteractiveClient.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/impl/AlternativeImpl.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/impl/CompleteQuestionImpl.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/impl/QuestionImpl.java" />
@@ -154,15 +124,16 @@
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/ClientBase.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.form" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.java" />
-        <option value="$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.form" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.java" />
+        <option value="$PROJECT_DIR$/src/Quiz/QuizServerPackage/alternativesIdsHolder.java" />
+        <option value="$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="114" />
-    <option name="y" value="68" />
+    <option name="x" value="87" />
+    <option name="y" value="71" />
     <option name="width" value="1446" />
     <option name="height" value="891" />
   </component>
@@ -225,10 +196,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Quiz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -266,12 +233,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
+              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NewAnswerDialogGUI" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -293,20 +256,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -547,15 +496,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="114" y="68" width="1446" height="891" extended-state="0" />
+    <frame x="87" y="71" width="1446" height="891" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19670959" sideWeight="0.7213997" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.7213997" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2422611" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24222799" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4088319" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28003246" sideWeight="0.2714724" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -564,8 +512,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5911681" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24678111" sideWeight="0.7213997" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27860028" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23642857" sideWeight="0.6968912" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3031088" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19670959" sideWeight="0.7213997" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -638,70 +587,19 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/ClientBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="43" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/NonInteractiveClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="10" selection-start="226" selection-end="226" vertical-scroll-proportion="0.31007752" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="49" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.66759">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="6" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.68503934">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.6.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Class.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="303" column="0" selection-start="14157" selection-end="14157" vertical-scroll-proportion="0.81891346">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.6.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/JOptionPane.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="22" selection-start="4414" selection-end="4414" vertical-scroll-proportion="0.33199194">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.6.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/JDialog.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="69" selection-start="499" selection-end="499" vertical-scroll-proportion="-0.3409091">
-          <folding />
-        </state>
+        <state line="9" column="69" selection-start="499" selection-end="499" vertical-scroll-proportion="-0.3409091" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Quiz/QuestionHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/ClientBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="0" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Quiz/_QuizServerStub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="2477" selection-end="2477" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -713,37 +611,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Quiz/AlternativeHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="19" selection-start="264" selection-end="264" vertical-scroll-proportion="0.05882353">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="83" selection-start="3695" selection-end="3695" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#568#741#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#797#970#0" expanded="true" />
-            <element signature="e#959#960#0" expanded="true" />
-            <element signature="e#1029#1205#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#1261#1440#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#2395#2728#0" expanded="true" />
-            <element signature="e#2717#2718#0" expanded="true" />
-            <element signature="e#2762#2924#0" expanded="true" />
-            <element signature="e#2913#2914#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="116" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="19" selection-start="264" selection-end="264" vertical-scroll-proportion="0.05882353" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.form">
@@ -753,10 +621,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="51" selection-start="2929" selection-end="2929" vertical-scroll-proportion="2.764706">
+        <state line="93" column="77" selection-start="2713" selection-end="2713" vertical-scroll-proportion="0.40677965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="116" selection-start="270" selection-end="270" vertical-scroll-proportion="0.028248588">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/Alternative.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="39" selection-start="473" selection-end="473" vertical-scroll-proportion="0.40301317">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/impl/AlternativeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="93" selection-start="108" selection-end="108" vertical-scroll-proportion="0.14124294">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/_QuizServerStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="17" selection-start="3745" selection-end="3745" vertical-scroll-proportion="0.33204633">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerPackage/alternativesIdsHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="22" selection-start="308" selection-end="308" vertical-scroll-proportion="-0.44980696">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerPackage/QuizException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="235" selection-end="235" vertical-scroll-proportion="0.28248587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="10" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerPackage/alternativesIdsHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="69" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="74" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.9082031">
           <folding>
-            <element signature="e#1223#1637#0" expanded="true" />
-            <element signature="e#1626#1627#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2505#3858#0" expanded="true" />
+            <element signature="e#3847#3848#0" expanded="true" />
+            <element signature="e#3892#4054#0" expanded="true" />
+            <element signature="e#4043#4044#0" expanded="true" />
           </folding>
         </state>
       </provider>
