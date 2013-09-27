@@ -66,7 +66,11 @@ public class InteractiveClient extends ClientBase{
         }
 
         gui.getQuestionLabel().setText(question.value.sentence);
-        gui.getAlternativeList().setListData(question.value.alternatives);
+        String[] alternativeText = new String[question.value.alternatives.length];
+        for(int i = 0; i < alternativeText.length; i++){
+            alternativeText[i] = question.value.alternatives[i].sentence;
+        }
+        gui.getAlternativeList().setListData(alternativeText);
 
         currentQuestion = question;
     }
@@ -130,7 +134,11 @@ public class InteractiveClient extends ClientBase{
     private void onDelQuestionButton(ActionEvent event){
         if(currentQuestion != null){
             try{
-                server.removeQuestion(currentQuestion.value.id);
+                int id = server.removeQuestion(currentQuestion.value.id);
+                if(id != -1){
+                    currentQuestion = null;
+                    updateCurrentQuestion(null);
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }
