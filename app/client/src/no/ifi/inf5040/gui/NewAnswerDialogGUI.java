@@ -90,6 +90,7 @@ public class NewAnswerDialogGUI extends JDialog {
 
     public void present(){
         pack();
+        setSize(new Dimension(400, 300));
         setVisible(true);
     }
 

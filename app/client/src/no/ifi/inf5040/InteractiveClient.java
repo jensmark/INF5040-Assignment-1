@@ -1,13 +1,16 @@
 package no.ifi.inf5040;
 
 import Quiz.*;
+import Quiz.QuizServerPackage.*;
 import no.ifi.inf5040.gui.InteractiveFormGUI;
 import no.ifi.inf5040.gui.NewAnswerDialogGUI;
+import no.ifi.inf5040.impl.CompleteQuestionImpl;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class InteractiveClient extends ClientBase{
 
@@ -78,6 +81,32 @@ public class InteractiveClient extends ClientBase{
             public void run() {
                 String question = dialog.getQuestionInput().getText();
                 String answer = dialog.getCorrectAnswerInput().getText();
+                ArrayList<JTextField> alt = dialog.getIncorrectAnswerInput();
+
+                if(question == null || question.length() == 0){
+                    return;
+                }
+                if(answer == null || answer.length() == 0){
+                    return;
+                }
+                if(alt == null || alt.size() == 0){
+                    return;
+                }
+
+                CompleteQuestion completeQuestion = new CompleteQuestionImpl();
+                completeQuestion.sentence = question;
+                completeQuestion.correctAlternatives = answer.toCharArray();
+
+                Alternative[] alternatives = new Alternative[alt.size()];
+                for(int i = 0; i < alt.size(); i++){
+                    alternatives[i].sentence = alt.get(i).getText();
+                }
+
+                try{
+                    completeQuestion.id = server.newQuestion(completeQuestion);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
 
                 System.out.println("Add Question: " + question + " with answer: " + answer);
             }
@@ -93,13 +122,34 @@ public class InteractiveClient extends ClientBase{
     }
 
     private void onDelQuestionButton(ActionEvent event){
-
+        if(currentQuestion != null){
+            try{
+                server.removeQuestion(currentQuestion.value.id);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     private void onAnswerQuestionButton(ActionEvent event){
-        Alternative alternative =
-                currentQuestion.value.alternatives[gui.getAlternativeList().getSelectedIndex()];
-
+        int index = gui.getAlternativeList().getSelectedIndex();
+        Alternative alternative;
+        if(index >= 0 && index <= gui.getAlternativeList().getMaxSelectionIndex() && currentQuestion != null){
+            alternative = currentQuestion.value.alternatives[index];
+        } else {
+            return;
+        }
+        try{
+            alternativesIdsHolder holder = new alternativesIdsHolder();
+            boolean correct = server.answerQuestion(currentQuestion.value.id, alternative.sentence.toCharArray(), holder);
+            if(correct){
+                JOptionPane.showMessageDialog(frame, "Correct answer!");
+            } else {
+                JOptionPane.showMessageDialog(frame, "Incorrect answer!\nThe correct answer is: " + holder.value);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void onGetRandomQuestionButton(ActionEvent event){
