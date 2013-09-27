@@ -25,7 +25,25 @@ CORBA::Boolean QuizServerImpl::getRandomQuestion(Quiz::Question_out randomQuesti
 CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 				const Quiz::QuizServer::alternativesIds& answer, 
 				Quiz::QuizServer::alternativesIds_out correct){
-	return true;
+
+	if(_completeQuestions.find(questionId) != _completeQuestions.end()){
+		Quiz::CompleteQuestion* q = _completeQuestions[questionId];
+		Quiz::CompleteQuestion::CharSeq corrCharSeq = q->correctAlternatives();
+		//if(corrCharSeq == q->correctAlternatives()){
+			//		CORBA::ValueFactoryBase_var vf = new Quiz::Question_init;
+			//		orb->register_value_factory("IDL:Quiz/Question:1.0", vf);
+			//
+			//		vf = new Quiz::Alternative_init;
+			//		orb->register_value_factory("IDL:Quiz/Alternative:1.0f", vf);
+			//
+			//		vf = new Quiz::CompleteQuestion_init;
+			//		orb->register_value_factory("IDL:Quiz/CompleteQuestion:1.0f", vf);
+		//}
+
+	}
+	else{
+		return false;
+	}
 }
 
 CORBA::Long QuizServerImpl::removeQuestion(CORBA::Long questionId){
