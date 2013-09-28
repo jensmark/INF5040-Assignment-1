@@ -11,7 +11,11 @@
     <file path="/NonInteractiveClient.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380407459973" ignored="false" />
     <file path="/fragment.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379674338931" ignored="false" />
     <file path="/ClientBase.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380036918569" ignored="false" />
+<<<<<<< HEAD
     <file path="/InteractiveClient.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380376242353" ignored="false" />
+=======
+    <file path="/InteractiveClient.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1380290516084" ignored="false" />
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
     <file path="/AlternativeImpl.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379676518582" ignored="false" />
     <file path="/CompleteQuestionImpl.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379676541670" ignored="false" />
     <file path="/QuestionImpl.java" changelist="bfda52cb-851a-4ca0-9ede-25a2f43852f5" time="1379676572040" ignored="false" />
@@ -31,6 +35,99 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" line="115" class="no.ifi.inf5040.InteractiveClient$5" package="no.ifi.inf5040">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/Quiz/QuestionPackage/AlternativeSeqHelper.java" line="56" class="Quiz.QuestionPackage.AlternativeSeqHelper" package="Quiz.QuestionPackage">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" line="150" class="no.ifi.inf5040.InteractiveClient" package="no.ifi.inf5040">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" line="158" class="no.ifi.inf5040.InteractiveClient" package="no.ifi.inf5040">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" line="172" class="no.ifi.inf5040.InteractiveClient" package="no.ifi.inf5040">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" line="174" class="no.ifi.inf5040.InteractiveClient" package="no.ifi.inf5040">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -67,8 +164,11 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+<<<<<<< HEAD
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+=======
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -78,6 +178,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name="NonInteractiveClient.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/NonInteractiveClient.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -100,23 +201,56 @@
                 <element signature="method#onDelQuestionButton#0;class#InteractiveClient#0" expanded="false" />
                 <element signature="method#onAnswerQuestionButton#0;class#InteractiveClient#0" expanded="false" />
               </folding>
+=======
+      <file leaf-file-name="InteractiveClient.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="139" column="38" selection-start="4869" selection-end="4869" vertical-scroll-proportion="0.8240741">
+              <folding>
+                <element signature="e#2761#4339#0" expanded="true" />
+                <element signature="e#4328#4329#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="NewAnswerDialogGUI.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="100" column="0" selection-start="2815" selection-end="2815" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="AlternativeImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/impl/AlternativeImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="2" column="24" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
+=======
+      <file leaf-file-name="_QuizServerStub.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/_QuizServerStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Alternative.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Quiz/Alternative.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="12" column="22" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
+=======
+      <file leaf-file-name="AlternativeSeqHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/QuestionPackage/AlternativeSeqHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="0" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
               <folding />
             </state>
           </provider>
@@ -124,8 +258,12 @@
       </file>
       <file leaf-file-name="Question.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Quiz/Question.java">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state line="17" column="31" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0">
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="0" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -134,7 +272,51 @@
       <file leaf-file-name="CompleteQuestion.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestion.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompleteQuestionHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestionHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="0" selection-start="2792" selection-end="2792" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="CompleteQuestion.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestion.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state line="16" column="22" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0">
+=======
+      <file leaf-file-name="CompleteQuestionHolder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestionHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="99" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/QuestionHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="22" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlternativeHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Quiz/AlternativeHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="28" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
               <folding />
             </state>
           </provider>
@@ -163,17 +345,21 @@
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.form" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/impl/AlternativeImpl.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" />
         <option value="$PROJECT_DIR$/src/no/ifi/inf5040/NonInteractiveClient.java" />
+=======
+        <option value="$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java" />
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-4" />
-    <option name="width" value="1377" />
-    <option name="height" value="905" />
+    <option name="x" value="87" />
+    <option name="y" value="71" />
+    <option name="width" value="1446" />
+    <option name="height" value="891" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -363,6 +549,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -391,7 +578,7 @@
       <recent name="no.ifi.inf5040" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NonInteractiveClient">
+  <component name="RunManager" selected="Application.InteractiveClient">
     <configuration default="false" name="InteractiveFormGUI" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="no.ifi.inf5040.gui.InteractiveFormGUI" />
       <option name="VM_PARAMETERS" />
@@ -420,7 +607,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="client" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -600,14 +793,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1377" height="905" extended-state="6" />
-    <editor active="false" />
+    <frame x="87" y="71" width="1446" height="891" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.7213997" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2422611" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4119171" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4088319" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28003246" sideWeight="0.2714724" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -616,8 +809,13 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24905944" sideWeight="0.8018494" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24604966" sideWeight="0.8018494" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19815059" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24571429" sideWeight="0.6204663" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37953368" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19670959" sideWeight="0.7213997" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -691,13 +889,20 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Quiz/_QuizServerStub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="0" selection-start="2477" selection-end="2477" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerPackage/alternativesIdsHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="19" selection-start="305" selection-end="305" vertical-scroll-proportion="0.34416825">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -706,10 +911,23 @@
     <entry file="file://$PROJECT_DIR$/src/Quiz/AlternativeHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="19" selection-start="264" selection-end="264" vertical-scroll-proportion="0.05882353">
+=======
+    <entry file="jar:///usr/lib/jvm/java-1.6.0-openjdk-amd64/jre/lib/rt.jar!/com/sun/corba/se/impl/encoding/CDROutputStream_1_0.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="212" column="17" selection-start="9464" selection-end="9464" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.6.0-openjdk-amd64/jre/lib/rt.jar!/org/omg/CORBA/portable/ObjectImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="46" selection-start="2488" selection-end="2488" vertical-scroll-proportion="0.61206895">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -718,68 +936,136 @@
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="80" selection-start="2804" selection-end="2804" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/ClientBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="47" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerPackage/alternativesIdsHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="0" selection-start="1655" selection-end="1655" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/InteractiveFormGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="116" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestionDefaultFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="403" selection-end="403" vertical-scroll-proportion="0.31034482">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServerPackage/QuizException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="19" selection-start="235" selection-end="235" vertical-scroll-proportion="0.24916944">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuestionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="22" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/impl/CompleteQuestionImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="43" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/AlternativeHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="28" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/ClientBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="71" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestionHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="99" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Quiz/QuestionPackage/AlternativeSeqHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="22" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/Question.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Quiz/Question.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="31" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Quiz/Alternative.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="22" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/CompleteQuestionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="2792" selection-end="2792" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/impl/AlternativeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="24" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Quiz/_QuizServerStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java">
+    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/gui/NewAnswerDialogGUI.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="70" column="23" selection-start="1833" selection-end="2286" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="method#InteractiveClient#0;class#InteractiveClient#0" expanded="false" />
@@ -794,15 +1080,25 @@
     <entry file="file://$PROJECT_DIR$/src/Quiz/QuizServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="17" selection-start="329" selection-end="329" vertical-scroll-proportion="0.3482143">
+=======
+        <state line="100" column="0" selection-start="2815" selection-end="2815" vertical-scroll-proportion="0.0">
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/NonInteractiveClient.java">
+    <entry file="file://$PROJECT_DIR$/src/no/ifi/inf5040/InteractiveClient.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="61" column="83" selection-start="2025" selection-end="2025" vertical-scroll-proportion="0.616179">
           <folding>
             <element signature="imports" expanded="true" />
+=======
+        <state line="139" column="38" selection-start="4869" selection-end="4869" vertical-scroll-proportion="0.8240741">
+          <folding>
+            <element signature="e#2761#4339#0" expanded="true" />
+            <element signature="e#4328#4329#0" expanded="true" />
+>>>>>>> 6ef9fdbc5be65ffeffa64cfc90396c302867f693
           </folding>
         </state>
       </provider>

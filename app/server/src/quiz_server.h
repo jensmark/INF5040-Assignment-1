@@ -6,7 +6,8 @@
 #define QuizServerImpl_h
 
 #include "quiz.hh"
-                                                                                
+#include <map>
+
 class QuizServerImpl :  public POA_Quiz::QuizServer,
                      public PortableServer::RefCountServantBase
 {
@@ -20,6 +21,13 @@ public:
     				const Quiz::QuizServer::alternativesIds& answer, 
     				Quiz::QuizServer::alternativesIds_out correct);
     virtual CORBA::Long removeQuestion(CORBA::Long questionId);
+
+private:
+    std::map<CORBA::Long, Quiz::CompleteQuestion*> _completeQuestions;
+
+    int _randNumber(int low, int high);
 };
+
+
 
 #endif

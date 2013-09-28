@@ -15,14 +15,22 @@ int main(int argc, char** argv) {
 		//------------------------------------------------------------------------
 		                                                                                                                                                          
 		CORBA::ORB_var orb = CORBA::ORB_init(argc, argv);
-		                                                                            
+
 	   
 		CORBA::Object_var obj = orb->resolve_initial_references("RootPOA");
 		PortableServer::POA_var _poa = PortableServer::POA::_narrow(obj.in());
 		
 		QuizServerImpl* server = new QuizServerImpl();
 		
-		
+		CORBA::ValueFactoryBase_var vf = new Quiz::Question_init;
+		orb->register_value_factory("IDL:Quiz/Question:1.0", vf);
+
+		vf = new Quiz::Alternative_init;
+		orb->register_value_factory("IDL:Quiz/Alternative:1.0", vf);
+
+		vf = new Quiz::CompleteQuestion_init;
+		orb->register_value_factory("IDL:Quiz/CompleteQuestion:1.0", vf);
+
 		PortableServer::ObjectId_var server_id = _poa->activate_object(server);
 		
 		CORBA::Object_var SA_obj = server->_this();
@@ -38,7 +46,7 @@ int main(int argc, char** argv) {
 		assert(!CORBA::is_nil(nc.in()));
 		
 		std::cout << "Binding service 'QuizService'" << std::endl;
-		
+
 		CosNaming::Name name;
 		name.length(1);
 		name[0].id=CORBA::string_dup("QuizService");

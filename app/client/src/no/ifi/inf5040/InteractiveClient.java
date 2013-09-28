@@ -4,6 +4,7 @@ import Quiz.*;
 import Quiz.QuizServerPackage.*;
 import no.ifi.inf5040.gui.InteractiveFormGUI;
 import no.ifi.inf5040.gui.NewAnswerDialogGUI;
+import no.ifi.inf5040.impl.AlternativeImpl;
 import no.ifi.inf5040.impl.CompleteQuestionImpl;
 
 import javax.swing.*;
@@ -65,7 +66,11 @@ public class InteractiveClient extends ClientBase{
         }
 
         gui.getQuestionLabel().setText(question.value.sentence);
-        gui.getAlternativeList().setListData(question.value.alternatives);
+        String[] alternativeText = new String[question.value.alternatives.length];
+        for(int i = 0; i < alternativeText.length; i++){
+            alternativeText[i] = question.value.alternatives[i].sentence;
+        }
+        gui.getAlternativeList().setListData(alternativeText);
 
         currentQuestion = question;
     }
@@ -95,12 +100,17 @@ public class InteractiveClient extends ClientBase{
 
                 CompleteQuestion completeQuestion = new CompleteQuestionImpl();
                 completeQuestion.sentence = question;
-                completeQuestion.correctAlternatives = answer.toCharArray();
+                completeQuestion.correctAlternatives = new char[]{0};
 
                 Alternative[] alternatives = new Alternative[alt.size()];
-                for(int i = 0; i < alt.size(); i++){
+                alternatives[0] = new AlternativeImpl();
+                alternatives[0].sentence = answer;
+                for(int i = 1; i < alt.size(); i++){
+                    alternatives[i] = new AlternativeImpl();
                     alternatives[i].sentence = alt.get(i).getText();
                 }
+
+                completeQuestion.alternatives = alternatives;
 
                 try{
                     completeQuestion.id = server.newQuestion(completeQuestion);
@@ -124,7 +134,11 @@ public class InteractiveClient extends ClientBase{
     private void onDelQuestionButton(ActionEvent event){
         if(currentQuestion != null){
             try{
-                server.removeQuestion(currentQuestion.value.id);
+                int id = server.removeQuestion(currentQuestion.value.id);
+                if(id != -1){
+                    currentQuestion = null;
+                    updateCurrentQuestion(null);
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -141,7 +155,8 @@ public class InteractiveClient extends ClientBase{
         }
         try{
             alternativesIdsHolder holder = new alternativesIdsHolder();
-            boolean correct = server.answerQuestion(currentQuestion.value.id, alternative.sentence.toCharArray(), holder);
+            char[] corr = {alternative.id};
+            boolean correct = server.answerQuestion(currentQuestion.value.id, corr, holder);
             if(correct){
                 JOptionPane.showMessageDialog(frame, "Correct answer!");
             } else {
@@ -156,12 +171,14 @@ public class InteractiveClient extends ClientBase{
         try {
             QuestionHolder questionHolder = new QuestionHolder();
             boolean result = server.getRandomQuestion(questionHolder);
-            if(questionHolder == null){
+            if(questionHolder.value != null){
                 updateCurrentQuestion(questionHolder);
             }else{
                 updateCurrentQuestion(null);
             }
-        } catch (Exception e){}
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void main(String [] args){
@@ -176,6 +193,11 @@ public class InteractiveClient extends ClientBase{
             boolean connected = client.connect(port, ip);
 
             client.onGetRandomQuestionButton(null);
+
+            //int t = server.removeQuestion(0);
+            //alternativesIdsHolder holder = new alternativesIdsHolder();
+            //char[] corr = {0};
+            //boolean correct = server.answerQuestion(0, corr, holder);
 
         } catch (Exception e){
             if(server == null){
@@ -193,6 +215,7 @@ public class InteractiveClient extends ClientBase{
 
             } else {
                 JOptionPane.showMessageDialog(client.getFrame(), "An error!!\n" + e.getCause());
+                e.printStackTrace();
                 System.exit(-1);
             }
         }

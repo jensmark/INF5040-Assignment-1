@@ -14,6 +14,7 @@
 
 #java specific
 *.class
+*.jar
  
 #netbeans ignore personal stuff
 nbproject/private/
