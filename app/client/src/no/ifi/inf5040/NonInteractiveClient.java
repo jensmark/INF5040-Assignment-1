@@ -79,6 +79,7 @@ public class NonInteractiveClient extends ClientBase{
                 }*/
 
                 send_question.alternatives = alternatives;
+                send_question.correctAlternatives = new char[]{0};
 
                 try{
                     //Send question to server
@@ -87,7 +88,7 @@ public class NonInteractiveClient extends ClientBase{
 
                     //e.printStackTrace();
                     System.out.println("Send question error: " + e.getMessage() + "\n" + e.getStackTrace());
-                    e.getStackTrace();
+                    e.printStackTrace();
                 }
             }
 
