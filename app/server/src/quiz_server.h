@@ -26,6 +26,7 @@ private:
     std::map<CORBA::Long, Quiz::CompleteQuestion*> _completeQuestions;
 
     int _randNumber(int low, int high);
+    static int newQuestionID;
 };
 
 

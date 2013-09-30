@@ -1,6 +1,9 @@
 #include "quiz_server.h"
 #include <iostream>
 #include <stdlib.h>
+
+int QuizServerImpl::newQuestionID = 0;
+
 QuizServerImpl::QuizServerImpl(){
 	srand(static_cast<unsigned int>(time(NULL)));
 }
@@ -8,16 +11,22 @@ QuizServerImpl::~QuizServerImpl(){
 }
 
 CORBA::Long QuizServerImpl::newQuestion(Quiz::CompleteQuestion* question){
-	std::cout << question->sentence() << std::endl;
+	std::cout << "adding new question: " << question->sentence() << std::endl;
+	std::cout << "correct answer: " << question->alternatives()[0]->sentence() << std::endl;
+	for(std::size_t i = 1; i < question->alternatives().length(); i++){
+		std::cout << "alternative "<< i << ": " << question->alternatives()[i]->sentence() << std::endl;
+	}
+
 	Quiz::CompleteQuestion* q = new OBV_Quiz::CompleteQuestion();
 	q->sentence(question->sentence());
 	q->correctAlternatives(question->correctAlternatives());
 	q->alternatives(question->alternatives());
 	
 	std::cout << q->sentence() << std::endl;
-	
-	_completeQuestions[_completeQuestions.size()] = q;
-	q->id(_completeQuestions.size()-1);
+	newQuestionID++;
+
+	_completeQuestions[newQuestionID] = q;
+	q->id(newQuestionID);
 	
 	return q->id();
 }
@@ -25,16 +34,21 @@ CORBA::Long QuizServerImpl::newQuestion(Quiz::CompleteQuestion* question){
 CORBA::Boolean QuizServerImpl::getRandomQuestion(Quiz::Question_out randomQuestion){
 	if(_completeQuestions.empty())
 		return false;
+	int id = _randNumber(0, _completeQuestions.size());
 
-	std::cout << "getting a random question" << std::endl;
-	int id = _randNumber(0, _completeQuestions.size()-1);
-	
-	Quiz::CompleteQuestion* q = _completeQuestions[id];
-	std::cout << q << std::endl;
-	std::cout << q->id() << std::endl;
-	std::cout << q->sentence() << std::endl;
-	
-	randomQuestion = q;
+	std::map<CORBA::Long, Quiz::CompleteQuestion*>::iterator iter;
+	iter = _completeQuestions.begin();
+	for(int i = 0; i < id; i++){
+		iter++;
+	}
+	Quiz::CompleteQuestion* q = iter->second;
+
+	Quiz::Question* qc = new OBV_Quiz::Question();
+	qc->sentence(q->sentence());
+	qc->alternatives(q->alternatives());
+	qc->id(q->id());
+
+	randomQuestion = qc;
 	
 	return true;
 }
@@ -46,17 +60,17 @@ CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 	if(_completeQuestions.find(questionId) != _completeQuestions.end()){
 		Quiz::CompleteQuestion* q = _completeQuestions[questionId];
 		Quiz::CompleteQuestion::CharSeq corrCharSeq = q->correctAlternatives();
-		//if(corrCharSeq == q->correctAlternatives()){
-			//		CORBA::ValueFactoryBase_var vf = new Quiz::Question_init;
-			//		orb->register_value_factory("IDL:Quiz/Question:1.0", vf);
-			//
-			//		vf = new Quiz::Alternative_init;
-			//		orb->register_value_factory("IDL:Quiz/Alternative:1.0f", vf);
-			//
-			//		vf = new Quiz::CompleteQuestion_init;
-			//		orb->register_value_factory("IDL:Quiz/CompleteQuestion:1.0f", vf);
-		//}
+		if(corrCharSeq.length() == answer.length()){
+			for(CORBA::ULong i = 0; i < answer.length(); i++){
+				if(corrCharSeq[i] != answer[i]){
+					return false;
+				}
+			}
+		}
+		//correct.alternativesIds_out(corrCharSeq);
 
+		//corrCharSeq[0]
+		//std::cout << corrCharSeq[0];
 	}
 	else{
 		return false;
@@ -76,7 +90,6 @@ CORBA::Long QuizServerImpl::removeQuestion(CORBA::Long questionId){
 }
 
 int QuizServerImpl::_randNumber(int low, int high){
-	int range = (high-low) + 1; 
-	return low + int(range * rand() / (RAND_MAX + 1.0f));
+	return (int)((double(rand()) / double(RAND_MAX)) * (high - low)) + low;
 }
 
