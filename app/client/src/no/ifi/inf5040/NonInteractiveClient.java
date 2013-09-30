@@ -39,8 +39,6 @@ public class NonInteractiveClient extends ClientBase{
         String ip = "localhost";
         NonInteractiveClient client = new NonInteractiveClient();
 
-        Scanner in = new Scanner(System.in);
-
         String[] strArr = {"q1", "q2", "q3","q4", "q5", "q6","q7", "q8", "q9", "q10"};
         String[] altArr = {"alternative1", "alternative2", "alternative3" };
 
@@ -50,7 +48,8 @@ public class NonInteractiveClient extends ClientBase{
             System.out.println("Attempting to connect to server..");
             boolean connected = client.connect(port, ip);
             System.out.println((connected == true ? "Connected to server." : "Connection failed."));
-            if(connected == false)
+
+            if(server == null)
             {
                 System.out.println("Quitting..");
                 System.exit(-1);
@@ -61,17 +60,23 @@ public class NonInteractiveClient extends ClientBase{
             //Send the 10 questions.
             for(int i = 0; i < strArr.length; i++){
 
-                String question = strArr[i];
-
                 CompleteQuestion send_question = new CompleteQuestionImpl();
-                send_question.sentence = question;
 
-                Alternative[] alternatives = new Alternative[2];
+                send_question.sentence = "question";//strArr[i];
+                send_question.id = i;
 
-                for(int j = 1; j < alternatives.length; j++){
+                Alternative[] alternatives = new Alternative[1];
+
+                Alternative alt = new AlternativeImpl();
+                alt.sentence = "alt1";
+                alt.id = 1;
+
+                alternatives[0] = alt;
+
+               /* for(int j = 1; j < alternatives.length; j++){
                     alternatives[j] = new AlternativeImpl();
                     alternatives[j].sentence = ("alt-" + j);
-                }
+                }*/
 
                 send_question.alternatives = alternatives;
 
@@ -79,16 +84,20 @@ public class NonInteractiveClient extends ClientBase{
                     //Send question to server
                     send_question.id = server.newQuestion(send_question);
                 } catch (Exception e){
-                    e.printStackTrace();
+
+                    //e.printStackTrace();
+                    System.out.println("Send question error: " + e.getMessage() + "\n" + e.getStackTrace());
+                    e.getStackTrace();
                 }
             }
-            System.out.println("All questions sent successfully.");
 
+            //System.out.println("All questions sent successfully.");
             GetRandomQuestion();
 
 
         } catch (Exception e){
         if(server == null){
+            Scanner in = new Scanner(System.in);
 
             while(server == null){
                 System.out.println("Failed to connect to server. Try again? [y/n]");

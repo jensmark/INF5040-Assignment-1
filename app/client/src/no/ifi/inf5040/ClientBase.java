@@ -38,15 +38,14 @@ public class ClientBase {
 
             String name = "QuizService";
             server = QuizServerHelper.narrow(nameContext.resolve_str(name));
+            return true;
 
         }catch(Exception e){
-            System.out.println("ERROR: " + e.getMessage());
+            System.out.println("Clientbase_ERROR: " + e.getMessage());
             e.printStackTrace();
             server = null;
             throw new Exception();
 
-        }finally {
-            return false;
         }
     }
 }
