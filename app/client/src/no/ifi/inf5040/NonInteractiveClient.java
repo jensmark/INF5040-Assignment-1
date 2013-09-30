@@ -2,26 +2,35 @@ package no.ifi.inf5040;
 
 import Quiz.Alternative;
 import Quiz.QuestionHolder;
-import Quiz.QuizServer;
+import Quiz.*;
 import no.ifi.inf5040.impl.*;
 import java.util.Scanner;
 
 public class NonInteractiveClient extends ClientBase{
 
-    public final String q1 = new String("Quetion 1");
-
     private static void GetRandomQuestion(){
+        System.out.println("Attempting to get question..");
         try {
             QuestionHolder responseQuestion = new QuestionHolder();
             boolean result = server.getRandomQuestion(responseQuestion);
 
-            if(responseQuestion != null){
-                System.out.println("Server response question: " + responseQuestion.value.sentence);
-            } else {System.out.println("Failed to get question from server");}
+            PrintQuestion(responseQuestion.value);
 
         } catch (Exception e){
-            System.out.println("Get question Exception: " + e.getCause());
+            System.out.println("Question request Exception: " + e.getCause());
         }
+    }
+
+    private static void PrintQuestion(Question question)
+    {
+        System.out.println("-------------------");
+        System.out.println("Server response question: " + question.sentence);
+
+        for(int i = 0; i < question.alternatives.length; i++)
+        {
+            System.out.println((i + 1)  + ": " + question.alternatives[i].sentence);
+        }
+        System.out.println("-------------------");
     }
 
     public static void main(String [] args){
@@ -29,42 +38,50 @@ public class NonInteractiveClient extends ClientBase{
         String port = "6666";
         String ip = "localhost";
         NonInteractiveClient client = new NonInteractiveClient();
-        //QuizServer server = client.connect("1024", "localhost");
 
         Scanner in = new Scanner(System.in);
 
         String[] strArr = {"q1", "q2", "q3","q4", "q5", "q6","q7", "q8", "q9", "q10"};
+        String[] altArr = {"alternative1", "alternative2", "alternative3" };
+
         int[] ids = new int[10];
 
-        //InteractiveClient client = new InteractiveClient();
-        //client.initGUI();
         try {
-
+            System.out.println("Attempting to connect to server..");
             boolean connected = client.connect(port, ip);
-
-            for(int i = 0; i < strArr.length; i++){
-                CompleteQuestionImpl q = new CompleteQuestionImpl();
-                q.sentence = "question: " + i;
-
-                AlternativeImpl qal = new AlternativeImpl();
-                qal.sentence = "alt1";
-                qal.id = 0;
-
-                AlternativeImpl qal2 = new AlternativeImpl();
-                qal2.sentence = "alt2";
-                qal2.id = 1;
-
-                q.alternatives = new Alternative[2];
-
-                q.alternatives[0] = qal;
-                q.alternatives[1] = qal2;
-
-                q.correctAlternatives = qal2.sentence.toCharArray();
-
-               // q.id =
-                //ids[i] = server.newQuestion(q);
-                System.out.print(ids[i]);
+            System.out.println((connected == true ? "Connected to server." : "Connection failed."));
+            if(connected == false)
+            {
+                System.out.println("Quitting..");
+                System.exit(-1);
             }
+
+            System.out.println("Beginning to send Questions..");
+            for(int i = 0; i < strArr.length; i++){
+
+                String question = "test question";
+
+
+                CompleteQuestion send_question = new CompleteQuestionImpl();
+                send_question.sentence = question;
+
+                Alternative[] alternatives = new Alternative[2];
+                alternatives[0] = new AlternativeImpl();
+
+                for(int j = 1; j < alternatives.length; j++){
+                    alternatives[j] = new AlternativeImpl();
+                    alternatives[j].sentence = ("alt-" + j);
+                }
+
+                send_question.alternatives = alternatives;
+
+                try{
+                    send_question.id = server.newQuestion(send_question);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("All questions sent successfully.");
 
             GetRandomQuestion();
 
