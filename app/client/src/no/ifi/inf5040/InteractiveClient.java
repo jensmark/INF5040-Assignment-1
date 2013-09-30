@@ -98,16 +98,30 @@ public class InteractiveClient extends ClientBase{
                     return;
                 }
 
+                int size = alt.size() + 1;
+                int correct = (int)(Math.random() * (size - 1));
+                System.out.println(correct);
+
                 CompleteQuestion completeQuestion = new CompleteQuestionImpl();
                 completeQuestion.sentence = question;
-                completeQuestion.correctAlternatives = new char[]{0};
+                completeQuestion.correctAlternatives = new char[]{(char)correct};
 
-                Alternative[] alternatives = new Alternative[alt.size()];
-                alternatives[0] = new AlternativeImpl();
-                alternatives[0].sentence = answer;
-                for(int i = 1; i < alt.size(); i++){
-                    alternatives[i] = new AlternativeImpl();
-                    alternatives[i].sentence = alt.get(i).getText();
+
+
+                Alternative[] alternatives = new Alternative[size];
+
+                int i2 = 0;
+                for(int i = 0; i < size; i++){
+                    if(i == correct){
+                        alternatives[i] = new AlternativeImpl();
+                        alternatives[i].id = (char)i;
+                        alternatives[i].sentence = answer;
+                    } else {
+                        alternatives[i] = new AlternativeImpl();
+                        alternatives[i].id = (char)i;
+                        alternatives[i].sentence = alt.get(i2).getText();
+                        i2++;
+                    }
                 }
 
                 completeQuestion.alternatives = alternatives;
