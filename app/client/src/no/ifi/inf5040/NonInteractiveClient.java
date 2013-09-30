@@ -57,16 +57,16 @@ public class NonInteractiveClient extends ClientBase{
             }
 
             System.out.println("Beginning to send Questions..");
+
+            //Send the 10 questions.
             for(int i = 0; i < strArr.length; i++){
 
-                String question = "test question";
-
+                String question = strArr[i];
 
                 CompleteQuestion send_question = new CompleteQuestionImpl();
                 send_question.sentence = question;
 
                 Alternative[] alternatives = new Alternative[2];
-                alternatives[0] = new AlternativeImpl();
 
                 for(int j = 1; j < alternatives.length; j++){
                     alternatives[j] = new AlternativeImpl();
@@ -76,6 +76,7 @@ public class NonInteractiveClient extends ClientBase{
                 send_question.alternatives = alternatives;
 
                 try{
+                    //Send question to server
                     send_question.id = server.newQuestion(send_question);
                 } catch (Exception e){
                     e.printStackTrace();
