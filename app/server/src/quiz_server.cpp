@@ -56,16 +56,30 @@ CORBA::Boolean QuizServerImpl::getRandomQuestion(Quiz::Question_out randomQuesti
 CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 				const Quiz::QuizServer::alternativesIds& answer, 
 				Quiz::QuizServer::alternativesIds_out correct){
-
+	std::cout << "line 1" << std::endl;
 	if(_completeQuestions.find(questionId) != _completeQuestions.end()){
+		std::cout << "line " << std::endl;
 		Quiz::CompleteQuestion* q = _completeQuestions[questionId];
+
+
+		std::cout << "line 3" << std::endl;
 		Quiz::CompleteQuestion::CharSeq corrCharSeq = q->correctAlternatives();
+		//correct.alternativesIds_out(Quiz::QuizServer::alternativesIds(corrCharSeq));
+		//Quiz::QuizServer::alternativesIds_out altOut(Quiz::QuizServer::alternativesIds(corrCharSeq));
+
+		correct = new Quiz::QuizServer::alternativesIds(corrCharSeq.length(), corrCharSeq.length(), corrCharSeq.get_buffer());
+		//Quiz::QuizServer::alternativesIds_var
+		std::cout << "line 4" << std::endl;
 		if(corrCharSeq.length() == answer.length()){
+			std::cout << "line 5" << std::endl;
 			for(CORBA::ULong i = 0; i < answer.length(); i++){
 				if(corrCharSeq[i] != answer[i]){
 					return false;
 				}
+				std::cout << "line 6" << std::endl;
 			}
+			std::cout << "line 7" << std::endl;
+			return true;
 		}
 		//correct.alternativesIds_out(corrCharSeq);
 
@@ -73,7 +87,9 @@ CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 		//std::cout << corrCharSeq[0];
 	}
 	else{
+		std::cout << "line 9" << std::endl;
 		return false;
+		std::cout << "line 7" << std::endl;
 	}
 }
 
@@ -85,6 +101,7 @@ CORBA::Long QuizServerImpl::removeQuestion(CORBA::Long questionId){
 	}
 	else{
 		std::cout << "Deleting ID: " << questionId << std::endl;
+		_completeQuestions.erase(it);
 		return questionId;
 	}
 }
