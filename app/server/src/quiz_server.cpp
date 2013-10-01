@@ -8,6 +8,7 @@ QuizServerImpl::QuizServerImpl(){
 	srand(static_cast<unsigned int>(time(NULL)));
 }
 QuizServerImpl::~QuizServerImpl(){
+
 }
 
 CORBA::Long QuizServerImpl::newQuestion(Quiz::CompleteQuestion* question){
@@ -64,8 +65,6 @@ CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 
 		std::cout << "line 3" << std::endl;
 		Quiz::CompleteQuestion::CharSeq corrCharSeq = q->correctAlternatives();
-		//correct.alternativesIds_out(Quiz::QuizServer::alternativesIds(corrCharSeq));
-		//Quiz::QuizServer::alternativesIds_out altOut(Quiz::QuizServer::alternativesIds(corrCharSeq));
 
 		correct = new Quiz::QuizServer::alternativesIds(corrCharSeq.length(), corrCharSeq.length(), corrCharSeq.get_buffer());
 		//Quiz::QuizServer::alternativesIds_var
@@ -81,10 +80,6 @@ CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 			std::cout << "line 7" << std::endl;
 			return true;
 		}
-		//correct.alternativesIds_out(corrCharSeq);
-
-		//corrCharSeq[0]
-		//std::cout << corrCharSeq[0];
 	}
 	else{
 		std::cout << "line 9" << std::endl;
