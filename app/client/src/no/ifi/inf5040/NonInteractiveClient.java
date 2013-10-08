@@ -15,8 +15,11 @@ public class NonInteractiveClient extends ClientBase{
         System.out.println("Attempting to get random question from server..");
         try {
             QuestionHolder responseQuestion = new QuestionHolder();
-            boolean result = server.getRandomQuestion(responseQuestion);
 
+            //A random question from the server is assigned to the reponseQuestion var
+            server.getRandomQuestion(responseQuestion);
+
+            //Prints out the question and its alternatives.
             PrintQuestion(responseQuestion.value);
 
         } catch (Exception e){
@@ -34,6 +37,7 @@ public class NonInteractiveClient extends ClientBase{
         System.out.println("-------------------");
         System.out.println("Server response question: " + question.sentence);
 
+        //Write out all question alternatives
         for(int i = 0; i < question.alternatives.length; i++)
         {
             System.out.println((i + 1)  + ": " + question.alternatives[i].sentence);
@@ -54,12 +58,16 @@ public class NonInteractiveClient extends ClientBase{
      */
     private static CompleteQuestionImpl populateQuestion(String qs, String[] alts, int ansID){
         CompleteQuestionImpl q = new CompleteQuestionImpl();
+        //Set question text
         q.sentence = qs;
+        //Set ID of corrent alternative
         q.correctAlternatives = new char[]{(char)ansID};
         q.id = 1;
 
+        //Set size of alternatives to length of alternative array
         Alternative[] alternatives = new Alternative[alts.length];
 
+        //Create alternative instances and assigns all alternatives
         for(int i = 0; i < alts.length; i++){
             Alternative alt = new AlternativeImpl();
 
@@ -77,10 +85,10 @@ public class NonInteractiveClient extends ClientBase{
 
         String port = "6666";
         String ip = "localhost";
-        NonInteractiveClient client = new NonInteractiveClient();
+
+        NonInteractiveClient client = new NonInteractiveClient(); //Creates a new instance of this class
 
         CompleteQuestion[] completeQs = new CompleteQuestionImpl[10];
-
 
         completeQs[0] = populateQuestion("Which multicast overlay type offers the best dissemination efficiency",
                 new String[]{"Rectangular grid", "Multicast tree", "Regular hypercube"}, 1);
@@ -114,35 +122,27 @@ public class NonInteractiveClient extends ClientBase{
 
         try {
             System.out.println("Attempting to connect to server..");
-            boolean connected = client.connect(port, ip);
-            System.out.println((connected == true ? "Connected to server." : "Connection failed."));
-
-            if(server == null)
-            {
-                System.out.println("Quitting..");
-                System.exit(-1);
-            }
+            client.connect(port, ip);//Connect to server using specified port and Ip adress
 
             System.out.println("Beginning to send Questions..");
-
-
             //Attempt to send questions to server.
             try{
                 for(int i = 0; i < completeQs.length; i++){
+                    Thread.sleep(1000); //Pause thread to simulate timed events.
                     System.out.println("Sending question #" + (i + 1));
-                    server.newQuestion(completeQs[i]);
+                    server.newQuestion(completeQs[i]); //Sends a question to the server.
                 }
             } catch(Exception e){
                 System.out.println("Send question error: " + e.getMessage());
             }
 
-            GetRandomQuestion();
+            GetRandomQuestion(); //Requests a random question from the server.
 
         } catch (Exception e){
-            if(server == null){
+            if(server == null){ //Problem with connecting to server
                 Scanner in = new Scanner(System.in);
 
-                while(server == null){
+                while(server == null){  //Allows user to attempt to reconn
                     System.out.println("Failed to connect to server. Try again? [y/n]");
                     String option = in.next().toLowerCase();
 
