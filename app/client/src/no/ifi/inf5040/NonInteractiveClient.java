@@ -8,9 +8,11 @@ import java.util.Scanner;
 
 public class NonInteractiveClient extends ClientBase{
 
-
+    /**
+     * Requests a random question from the server and utilizes the printQuestion to print it out.
+     */
     private static void GetRandomQuestion(){
-        System.out.println("Attempting to get question..");
+        System.out.println("Attempting to get random question from server..");
         try {
             QuestionHolder responseQuestion = new QuestionHolder();
             boolean result = server.getRandomQuestion(responseQuestion);
@@ -22,6 +24,11 @@ public class NonInteractiveClient extends ClientBase{
         }
     }
 
+    /**
+     * Prints out a question and available alternatives.
+     * @param question
+     *
+     */
     private static void PrintQuestion(Question question)
     {
         System.out.println("-------------------");
@@ -34,6 +41,17 @@ public class NonInteractiveClient extends ClientBase{
         System.out.println("-------------------");
     }
 
+    /**
+     * Function for creating a complete question ready for sending to server.
+     *
+     * @param qs
+     * Question sentence
+     * @param alts
+     * String array of question answer alternatives.
+     * @param ansID
+     * int ID of correct alternative.
+     * @return
+     */
     private static CompleteQuestionImpl populateQuestion(String qs, String[] alts, int ansID){
         CompleteQuestionImpl q = new CompleteQuestionImpl();
         q.sentence = qs;
@@ -63,16 +81,36 @@ public class NonInteractiveClient extends ClientBase{
 
         CompleteQuestion[] completeQs = new CompleteQuestionImpl[10];
 
-        completeQs[0] = populateQuestion("q1", new String[]{"1", "2", "3"}, 1);
-        completeQs[1] = populateQuestion("q2", new String[]{"1", "2", "3"}, 1);
-        completeQs[2] = populateQuestion("q3", new String[]{"1", "2", "3"}, 1);
-        completeQs[3] = populateQuestion("q4", new String[]{"1", "2", "3"}, 1);
-        completeQs[4] = populateQuestion("q5", new String[]{"1", "2", "3"}, 1);
-        completeQs[5] = populateQuestion("q6", new String[]{"1", "2", "3"}, 1);
-        completeQs[6] = populateQuestion("q7", new String[]{"1", "2", "3"}, 1);
-        completeQs[7] = populateQuestion("q8", new String[]{"1", "2", "3"}, 1);
-        completeQs[8] = populateQuestion("q9", new String[]{"1", "2", "3"}, 1);
-        completeQs[9] = populateQuestion("q10", new String[]{"1", "2", "3"}, 1);
+
+        completeQs[0] = populateQuestion("Which multicast overlay type offers the best dissemination efficiency",
+                new String[]{"Rectangular grid", "Multicast tree", "Regular hypercube"}, 1);
+
+        completeQs[1] = populateQuestion("Which of the following protocols offers order garantee",
+                new String[]{"UDP", "TCP", "P2P"}, 1);
+
+        completeQs[2] = populateQuestion("At most one process can be in a critical section at the same time.",
+                new String[]{"Small world problem", "Mutual exclusion problem ", "Atomic transaction problem"}, 1);
+
+        completeQs[3] = populateQuestion("Which algorithm uses a token that is rotated in a specific direction?",
+                new String[]{"Central server algorithm", "Ring based algorithm", "The bully algorithm"}, 1);
+
+        completeQs[4] = populateQuestion("What protocol does CORBA use to communicate between different programming languages across the internet?",
+                new String[]{"HTTP", "IIOP", "IMAP"}, 1);
+
+        completeQs[5] = populateQuestion("Middleware that allows a program to make Remote procedure calls.",
+                new String[]{"TCP", "ORB", "IDL"}, 1);
+
+        completeQs[6] = populateQuestion("What is the worst case order of the Bully algorithm ",
+                new String[]{"n", "n²", "2^n"}, 1);
+
+        completeQs[7] = populateQuestion("Which algorithm is vulnerable to a central bottleneck?",
+                new String[]{"Ring based algorithm", "Central server algorithm", "Bully algorithm"}, 1);
+
+        completeQs[8] = populateQuestion("Which transport layer protocol is limited by packet size",
+                new String[]{"TCP", "UDP", "SMB"}, 1);
+
+        completeQs[9] = populateQuestion("The process of transforming an object to a format suited for transmissions is called..",
+                new String[]{"Generalizing", "Marshalling", "Corporaling"}, 1);
 
         try {
             System.out.println("Attempting to connect to server..");
@@ -87,18 +125,18 @@ public class NonInteractiveClient extends ClientBase{
 
             System.out.println("Beginning to send Questions..");
 
+
+            //Attempt to send questions to server.
             try{
-                //Send the questions.
                 for(int i = 0; i < completeQs.length; i++){
                     System.out.println("Sending question #" + (i + 1));
                     server.newQuestion(completeQs[i]);
                 }
             } catch(Exception e){
-                System.out.println("Send question error: " + e.getMessage() + "\n" + e.getStackTrace());
+                System.out.println("Send question error: " + e.getMessage());
             }
 
             GetRandomQuestion();
-
 
         } catch (Exception e){
             if(server == null){
@@ -123,9 +161,7 @@ public class NonInteractiveClient extends ClientBase{
                         System.out.println("Invalid input");
                     }
                 }
-
             } else {
-
                 System.out.println("\nunknown error(E):\n" + e.getCause() + "\nserver:" + (server == null ? "null" : "!null"));
                 System.exit(-1);
             }
