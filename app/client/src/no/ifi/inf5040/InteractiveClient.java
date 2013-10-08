@@ -174,7 +174,8 @@ public class InteractiveClient extends ClientBase{
             if(correct){
                 JOptionPane.showMessageDialog(frame, "Correct answer!");
             } else {
-                JOptionPane.showMessageDialog(frame, "Incorrect answer!\nThe correct answer is: " + holder.value);
+                String corrAns = currentQuestion.value.alternatives[holder.value[0]].sentence;
+                JOptionPane.showMessageDialog(frame, "Incorrect answer!\nThe correct answer is: " + corrAns);
             }
         } catch (Exception e){
             e.printStackTrace();
