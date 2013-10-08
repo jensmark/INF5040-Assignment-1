@@ -13,8 +13,9 @@ QuizServerImpl::~QuizServerImpl(){
 
 CORBA::Long QuizServerImpl::newQuestion(Quiz::CompleteQuestion* question){
 	std::cout << "Adding new question: " << question->sentence() << std::endl;
-	std::cout << "correct answer: " << question->alternatives()[0]->sentence() << std::endl;
-	for(std::size_t i = 1; i < question->alternatives().length(); i++){
+
+	std::cout << "correct answer: " << question->alternatives()[question->correctAlternatives()[0]]->sentence() << std::endl;
+	for(std::size_t i = 0; i < question->alternatives().length(); i++){
 		std::cout << "alternative "<< i << ": " << question->alternatives()[i]->sentence() << std::endl;
 	}
 
@@ -69,12 +70,14 @@ CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 
 		correct = new Quiz::QuizServer::alternativesIds(corrCharSeq.length(), corrCharSeq.length(), corrCharSeq.get_buffer());
 
+		//q->alternatives()[q->correctAlternatives()[0]]->sentence();
 		if(corrCharSeq.length() == answer.length()){
 			for(CORBA::ULong i = 0; i < answer.length(); i++){
 				if(corrCharSeq[i] != answer[i]){
 					return false;
 				}
 			}
+			std::cout << "The answer was correct" << std::endl;
 			return true;
 		}
 	}
@@ -90,8 +93,8 @@ CORBA::Long QuizServerImpl::removeQuestion(CORBA::Long questionId){
 		return -1;
 	}
 	else{
-		std::cout << "Deleting ID: " << questionId << std::endl;
 		_completeQuestions.erase(it);
+		std::cout << "Deleted question with ID: " << questionId << std::endl;
 		return questionId;
 	}
 }
