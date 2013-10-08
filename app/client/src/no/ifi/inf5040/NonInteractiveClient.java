@@ -85,86 +85,100 @@ public class NonInteractiveClient extends ClientBase{
 
         String port = "6666";
         String ip = "localhost";
+        boolean running = true;
 
-        NonInteractiveClient client = new NonInteractiveClient(); //Creates a new instance of this class
+        while(running){
 
-        CompleteQuestion[] completeQs = new CompleteQuestionImpl[10];
+            NonInteractiveClient client = new NonInteractiveClient(); //Creates a new instance of this class
 
-        completeQs[0] = populateQuestion("Which multicast overlay type offers the best dissemination efficiency",
-                new String[]{"Rectangular grid", "Multicast tree", "Regular hypercube"}, 1);
+            CompleteQuestion[] completeQs = new CompleteQuestionImpl[10];
 
-        completeQs[1] = populateQuestion("Which of the following protocols offers order garantee",
-                new String[]{"UDP", "TCP", "P2P"}, 1);
+            completeQs[0] = populateQuestion("Which multicast overlay type offers the best dissemination efficiency",
+                    new String[]{"Rectangular grid", "Multicast tree", "Regular hypercube"}, 1);
 
-        completeQs[2] = populateQuestion("At most one process can be in a critical section at the same time.",
-                new String[]{"Small world problem", "Mutual exclusion problem ", "Atomic transaction problem"}, 1);
+            completeQs[1] = populateQuestion("Which of the following protocols offers order garantee",
+                    new String[]{"UDP", "TCP", "P2P"}, 1);
 
-        completeQs[3] = populateQuestion("Which algorithm uses a token that is rotated in a specific direction?",
-                new String[]{"Central server algorithm", "Ring based algorithm", "The bully algorithm"}, 1);
+            completeQs[2] = populateQuestion("At most one process can be in a critical section at the same time.",
+                    new String[]{"Small world problem", "Mutual exclusion problem ", "Atomic transaction problem"}, 1);
 
-        completeQs[4] = populateQuestion("What protocol does CORBA use to communicate between different programming languages across the internet?",
-                new String[]{"HTTP", "IIOP", "IMAP"}, 1);
+            completeQs[3] = populateQuestion("Which algorithm uses a token that is rotated in a specific direction?",
+                    new String[]{"Central server algorithm", "Ring based algorithm", "The bully algorithm"}, 1);
 
-        completeQs[5] = populateQuestion("Middleware that allows a program to make Remote procedure calls.",
-                new String[]{"TCP", "ORB", "IDL"}, 1);
+            completeQs[4] = populateQuestion("What protocol does CORBA use to communicate between different programming languages across the internet?",
+                    new String[]{"HTTP", "IIOP", "IMAP"}, 1);
 
-        completeQs[6] = populateQuestion("What is the worst case order of the Bully algorithm ",
-                new String[]{"n", "n²", "2^n"}, 1);
+            completeQs[5] = populateQuestion("Middleware that allows a program to make Remote procedure calls.",
+                    new String[]{"TCP", "ORB", "IDL"}, 1);
 
-        completeQs[7] = populateQuestion("Which algorithm is vulnerable to a central bottleneck?",
-                new String[]{"Ring based algorithm", "Central server algorithm", "Bully algorithm"}, 1);
+            completeQs[6] = populateQuestion("What is the worst case order of the Bully algorithm ",
+                    new String[]{"n", "n²", "2^n"}, 1);
 
-        completeQs[8] = populateQuestion("Which transport layer protocol is limited by packet size",
-                new String[]{"TCP", "UDP", "SMB"}, 1);
+            completeQs[7] = populateQuestion("Which algorithm is vulnerable to a central bottleneck?",
+                    new String[]{"Ring based algorithm", "Central server algorithm", "Bully algorithm"}, 1);
 
-        completeQs[9] = populateQuestion("The process of transforming an object to a format suited for transmissions is called..",
-                new String[]{"Generalizing", "Marshalling", "Corporaling"}, 1);
+            completeQs[8] = populateQuestion("Which transport layer protocol is limited by packet size",
+                    new String[]{"TCP", "UDP", "SMB"}, 1);
 
-        try {
-            System.out.println("Attempting to connect to server..");
-            client.connect(port, ip);//Connect to server using specified port and Ip adress
+            completeQs[9] = populateQuestion("The process of transforming an object to a format suited for transmissions is called..",
+                    new String[]{"Generalizing", "Marshalling", "Corporaling"}, 1);
 
-            System.out.println("Beginning to send Questions..");
-            //Attempt to send questions to server.
-            try{
-                for(int i = 0; i < completeQs.length; i++){
-                    Thread.sleep(1000); //Pause thread to simulate timed events.
-                    System.out.println("Sending question #" + (i + 1));
-                    server.newQuestion(completeQs[i]); //Sends a question to the server.
+            try {
+                System.out.println("Attempting to connect to server..");
+                boolean connected = client.connect(port, ip);//Connect to server using specified port and Ip adress
+
+                /*if(connected == false) {
+                    System.out.println("Could not connect to server.");
+                    throw new Exception();
+                }*/
+
+                System.out.println("Beginning to send Questions..");
+                //Attempt to send questions to server.
+                try{
+                    for(int i = 0; i < completeQs.length; i++){
+                        Thread.sleep(1000); //Pause thread to simulate timed events.
+                        System.out.println("Sending question #" + (i + 1));
+                        server.newQuestion(completeQs[i]); //Sends a question to the server.
+                    }
+                } catch(Exception e){
+                    System.out.println("Send question error: " + e.getMessage());
                 }
-            } catch(Exception e){
-                System.out.println("Send question error: " + e.getMessage());
-            }
 
-            GetRandomQuestion(); //Requests a random question from the server.
+                GetRandomQuestion(); //Requests a random question from the server.
 
-        } catch (Exception e){
-            if(server == null){ //Problem with connecting to server
-                Scanner in = new Scanner(System.in);
+                running = false;
 
-                while(server == null){  //Allows user to attempt to reconn
-                    System.out.println("Failed to connect to server. Try again? [y/n]");
-                    String option = in.next().toLowerCase();
+            } catch (Exception e){
+                if(server == null){ //Problem with connecting to server
+                    System.out.println("Failed to connect to server.");
+                    Scanner in = new Scanner(System.in);
 
-                    if(option.contains("y")) {
-                        try{
-                            client.connect(port, ip);
-                        }catch (Exception ee){
-                            System.out.println("unknown error (EE):\n" + ee.fillInStackTrace());
+                    while(server == null){  //Allows user to attempt to connect again.
+                        System.out.println("Attempt to connect again?[y/n]");
+                        String option = in.next().toLowerCase();
+
+                        if(option.contains("y")) {
+                            try{
+                                client.connect(port, ip);
+                            }catch (Exception ee){
+                                System.out.println("unknown error (EE):\n" + ee.fillInStackTrace());
+                            }
+                        }
+                        else if(option.contains("n")){
+                            System.out.println("Exiting..");
+                            System.exit(-1);
+                        }
+                        else{
+                            System.out.println("Invalid input");
                         }
                     }
-                    else if(option.contains("n")){
-                        System.out.println("Exiting..");
-                        System.exit(-1);
-                    }
-                    else{
-                        System.out.println("Invalid input");
-                    }
+                } else {
+                    System.out.println("\nunknown error(E):\n" + e.getCause());
+                    System.exit(-1);
                 }
-            } else {
-                System.out.println("\nunknown error(E):\n" + e.getCause() + "\nserver:" + (server == null ? "null" : "!null"));
-                System.exit(-1);
             }
         }
+
+        System.exit(0);
     }
 }

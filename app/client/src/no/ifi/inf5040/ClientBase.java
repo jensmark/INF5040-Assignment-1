@@ -1,5 +1,6 @@
 package no.ifi.inf5040;
 
+import Quiz.QuestionHolder;
 import Quiz.QuizServer;
 import Quiz.QuizServerHelper;
 import org.omg.CORBA.ORB;
@@ -38,14 +39,18 @@ public class ClientBase {
 
             String name = "QuizService";
             server = QuizServerHelper.narrow(nameContext.resolve_str(name));
-            return true;
+
+            if(server == null){throw new Exception();}
+
+            server.getRandomQuestion(new QuestionHolder());
 
         }catch(Exception e){
             System.out.println("Clientbase_ERROR: " + e.getMessage());
             e.printStackTrace();
             server = null;
             throw new Exception();
-
         }
+
+        return true;
     }
 }
