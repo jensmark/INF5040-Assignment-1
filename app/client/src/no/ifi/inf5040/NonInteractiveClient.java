@@ -8,8 +8,11 @@ import java.util.Scanner;
 
 public class NonInteractiveClient extends ClientBase{
 
+    /**
+     * Requests a random question from the server and utilizes the printQuestion to print it out.
+     */
     private static void GetRandomQuestion(){
-        System.out.println("Attempting to get question..");
+        System.out.println("Attempting to get random question from server..");
         try {
             QuestionHolder responseQuestion = new QuestionHolder();
             boolean result = server.getRandomQuestion(responseQuestion);
@@ -21,6 +24,11 @@ public class NonInteractiveClient extends ClientBase{
         }
     }
 
+    /**
+     * Prints out a question and available alternatives.
+     * @param question
+     *
+     */
     private static void PrintQuestion(Question question)
     {
         System.out.println("-------------------");
@@ -33,16 +41,76 @@ public class NonInteractiveClient extends ClientBase{
         System.out.println("-------------------");
     }
 
+    /**
+     * Function for creating a complete question ready for sending to server.
+     *
+     * @param qs
+     * Question sentence
+     * @param alts
+     * String array of question answer alternatives.
+     * @param ansID
+     * int ID of correct alternative.
+     * @return
+     */
+    private static CompleteQuestionImpl populateQuestion(String qs, String[] alts, int ansID){
+        CompleteQuestionImpl q = new CompleteQuestionImpl();
+        q.sentence = qs;
+        q.correctAlternatives = new char[]{(char)ansID};
+        q.id = 1;
+
+        Alternative[] alternatives = new Alternative[alts.length];
+
+        for(int i = 0; i < alts.length; i++){
+            Alternative alt = new AlternativeImpl();
+
+            alt.sentence = alts[i];
+            alt.id = (char)i;
+
+            alternatives[i] = alt;
+        }
+        q.alternatives = alternatives;
+
+        return q;
+    }
+
     public static void main(String [] args){
 
         String port = "6666";
         String ip = "localhost";
         NonInteractiveClient client = new NonInteractiveClient();
 
-        String[] strArr = {"q1", "q2", "q3","q4", "q5", "q6","q7", "q8", "q9", "q10"};
-        String[] altArr = {"alternative1", "alternative2", "alternative3" };
+        CompleteQuestion[] completeQs = new CompleteQuestionImpl[10];
 
-        int[] ids = new int[10];
+
+        completeQs[0] = populateQuestion("Which multicast overlay type offers the best dissemination efficiency",
+                new String[]{"Rectangular grid", "Multicast tree", "Regular hypercube"}, 1);
+
+        completeQs[1] = populateQuestion("Which of the following protocols offers order garantee",
+                new String[]{"UDP", "TCP", "P2P"}, 1);
+
+        completeQs[2] = populateQuestion("At most one process can be in a critical section at the same time.",
+                new String[]{"Small world problem", "Mutual exclusion problem ", "Atomic transaction problem"}, 1);
+
+        completeQs[3] = populateQuestion("Which algorithm uses a token that is rotated in a specific direction?",
+                new String[]{"Central server algorithm", "Ring based algorithm", "The bully algorithm"}, 1);
+
+        completeQs[4] = populateQuestion("What protocol does CORBA use to communicate between different programming languages across the internet?",
+                new String[]{"HTTP", "IIOP", "IMAP"}, 1);
+
+        completeQs[5] = populateQuestion("Middleware that allows a program to make Remote procedure calls.",
+                new String[]{"TCP", "ORB", "IDL"}, 1);
+
+        completeQs[6] = populateQuestion("What is the worst case order of the Bully algorithm ",
+                new String[]{"n", "n²", "2^n"}, 1);
+
+        completeQs[7] = populateQuestion("Which algorithm is vulnerable to a central bottleneck?",
+                new String[]{"Ring based algorithm", "Central server algorithm", "Bully algorithm"}, 1);
+
+        completeQs[8] = populateQuestion("Which transport layer protocol is limited by packet size",
+                new String[]{"TCP", "UDP", "SMB"}, 1);
+
+        completeQs[9] = populateQuestion("The process of transforming an object to a format suited for transmissions is called..",
+                new String[]{"Generalizing", "Marshalling", "Corporaling"}, 1);
 
         try {
             System.out.println("Attempting to connect to server..");
@@ -57,74 +125,46 @@ public class NonInteractiveClient extends ClientBase{
 
             System.out.println("Beginning to send Questions..");
 
-            //Send the 10 questions.
-            for(int i = 0; i < strArr.length; i++){
 
-                CompleteQuestion send_question = new CompleteQuestionImpl();
-
-                send_question.sentence = "question";//strArr[i];
-                send_question.id = i;
-
-                Alternative[] alternatives = new Alternative[1];
-
-                Alternative alt = new AlternativeImpl();
-                alt.sentence = "alt1";
-                alt.id = 1;
-
-                alternatives[0] = alt;
-
-               /* for(int j = 1; j < alternatives.length; j++){
-                    alternatives[j] = new AlternativeImpl();
-                    alternatives[j].sentence = ("alt-" + j);
-                }*/
-
-                send_question.alternatives = alternatives;
-                send_question.correctAlternatives = new char[]{0};
-
-                try{
-                    //Send question to server
-                    send_question.id = server.newQuestion(send_question);
-                } catch (Exception e){
-
-                    //e.printStackTrace();
-                    System.out.println("Send question error: " + e.getMessage() + "\n" + e.getStackTrace());
-                    e.printStackTrace();
+            //Attempt to send questions to server.
+            try{
+                for(int i = 0; i < completeQs.length; i++){
+                    System.out.println("Sending question #" + (i + 1));
+                    server.newQuestion(completeQs[i]);
                 }
+            } catch(Exception e){
+                System.out.println("Send question error: " + e.getMessage());
             }
 
-            //System.out.println("All questions sent successfully.");
             GetRandomQuestion();
 
-
         } catch (Exception e){
-        if(server == null){
-            Scanner in = new Scanner(System.in);
+            if(server == null){
+                Scanner in = new Scanner(System.in);
 
-            while(server == null){
-                System.out.println("Failed to connect to server. Try again? [y/n]");
-                String option = in.next().toLowerCase();
+                while(server == null){
+                    System.out.println("Failed to connect to server. Try again? [y/n]");
+                    String option = in.next().toLowerCase();
 
-                if(option.contains("y")) {
-                    try{
-                        client.connect(port, ip);
-                    }catch (Exception ee){
-                        System.out.println("unknown error (EE):\n" + ee.fillInStackTrace());
+                    if(option.contains("y")) {
+                        try{
+                            client.connect(port, ip);
+                        }catch (Exception ee){
+                            System.out.println("unknown error (EE):\n" + ee.fillInStackTrace());
+                        }
+                    }
+                    else if(option.contains("n")){
+                        System.out.println("Exiting..");
+                        System.exit(-1);
+                    }
+                    else{
+                        System.out.println("Invalid input");
                     }
                 }
-                else if(option.contains("n")){
-                    System.out.println("Exiting..");
-                    System.exit(-1);
-                }
-                else{
-                    System.out.println("Invalid input");
-                }
+            } else {
+                System.out.println("\nunknown error(E):\n" + e.getCause() + "\nserver:" + (server == null ? "null" : "!null"));
+                System.exit(-1);
             }
-
-        } else {
-
-            System.out.println("\nunknown error(E):\n" + e.getCause() + "\nserver:" + (server == null ? "null" : "!null"));
-            System.exit(-1);
         }
-    }
     }
 }
