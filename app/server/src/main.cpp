@@ -36,7 +36,6 @@ int main(int argc, char** argv) {
 		CORBA::Object_var SA_obj = server->_this();
 		
 		CORBA::String_var sior(orb->object_to_string(SA_obj.in()));
-		//std::cerr << "'" << (char*)sior << "'" << std::endl;
 		
 		
 		CORBA::Object_var obj1=orb->resolve_initial_references("NameService");

@@ -70,7 +70,6 @@ CORBA::Boolean QuizServerImpl::answerQuestion(CORBA::Long questionId,
 
 		correct = new Quiz::QuizServer::alternativesIds(corrCharSeq.length(), corrCharSeq.length(), corrCharSeq.get_buffer());
 
-		//q->alternatives()[q->correctAlternatives()[0]]->sentence();
 		if(corrCharSeq.length() == answer.length()){
 			for(CORBA::ULong i = 0; i < answer.length(); i++){
 				if(corrCharSeq[i] != answer[i]){
