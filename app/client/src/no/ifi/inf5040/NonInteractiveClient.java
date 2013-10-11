@@ -97,7 +97,7 @@ public class NonInteractiveClient extends ClientBase{
                     new String[]{"Rectangular grid", "Multicast tree", "Regular hypercube"}, 1);
 
             completeQs[1] = populateQuestion("Which of the following protocols offers order garantee",
-                    new String[]{"UDP", "TCP", "P2P"}, 1);
+                    new String[]{"UDP", "TCP", "pop3"}, 1);
 
             completeQs[2] = populateQuestion("At most one process can be in a critical section at the same time.",
                     new String[]{"Small world problem", "Mutual exclusion problem ", "Atomic transaction problem"}, 1);
@@ -111,13 +111,13 @@ public class NonInteractiveClient extends ClientBase{
             completeQs[5] = populateQuestion("Middleware that allows a program to make Remote procedure calls.",
                     new String[]{"TCP", "ORB", "IDL"}, 1);
 
-            completeQs[6] = populateQuestion("What is the worst case order of the Bully algorithm ",
-                    new String[]{"n", "n²", "2^n"}, 1);
+            completeQs[6] = populateQuestion("What is the worst case order(Big O) of the Bully algorithm ",
+                    new String[]{"n", "n^2", "2^n"}, 1);
 
             completeQs[7] = populateQuestion("Which algorithm is vulnerable to a central bottleneck?",
                     new String[]{"Ring based algorithm", "Central server algorithm", "Bully algorithm"}, 1);
 
-            completeQs[8] = populateQuestion("Which transport layer protocol is limited by packet size",
+            completeQs[8] = populateQuestion("Which transport layer protocol has the smallest header size.",
                     new String[]{"TCP", "UDP", "SMB"}, 1);
 
             completeQs[9] = populateQuestion("The process of transforming an object to a format suited for transmissions is called..",
